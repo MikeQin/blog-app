@@ -21,3 +21,8 @@ npm install remark remark-html
 ```
 npm install date-fns
 ```
+
+### Production Deployment Domain
+
+- https://blog-app-lyart-eight.vercel.app/
+- https://blog-app-mikeqin.vercel.app/
