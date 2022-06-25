@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout';
-import utilStyles from '../styles/utils.module.css';
+import Layout, { siteTitle } from '../components/Layout';
+import styles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
-import Date from '../components/date';
+import Date from '../components/Date';
 import Image from 'next/image';
 
 // 1. Pre-remdering: Static generation
@@ -43,32 +43,37 @@ export default function Home({ allPostsData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
+      <section className={styles.headingMd}>
         <p>Hello, this is <b>Michael</b>. I'm a director of systems engineering. 
         You can contact me on {' '}
         <Link href="https://twitter.com/michaelqin">Twitter</Link>.
         </p>
       </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
+      <section className={`${styles.headingMd} ${styles.padding1px}`}>
+        <h2 className={styles.headingLg}>Blog</h2>
+        <ul className={styles.list}>
           {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
+            <li className={styles.listItem} key={id}>
               <Link href={`/posts/${id}`}>
                 <a>{title}</a>
               </Link>
               <br />
-              <small className={utilStyles.lightText}>
+              <small className={styles.lightText}>
                 <Date dateString={date} />
               </small>
             </li>
           ))}
         </ul>
       </section>
-      <a href="https://twitter.com/michaelqin">
-        <Image src="/images/twitter-logo.jpg" width={100} height={100} alt="twitter"/>
-      </a>
-      <section className={utilStyles.headingMd}>
+      <section className={`${styles.headingMd} ${styles.padding1px}`}>
+        <h2 className={styles.headingLg}>Modal Demo</h2>
+        <Link href='/video'>View YouTube video</Link>
+      </section>
+      <section className={styles.headingMd}>
+        <br/>
+        <a href="https://twitter.com/michaelqin">
+          <Image src="/images/twitter-logo.jpg" width={100} height={100} alt="twitter"/>
+        </a>
         <p>
           (Powered by{' '}
           <a href="https://nextjs.org">{' '}Next.js</a>.)
